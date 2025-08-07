@@ -1,7 +1,7 @@
 ---
 title: "Leslie Matrix Example"
 description: "Day 4: Tasks & Activities"
-date: 2024-08-07
+date: 2025-08-07
 format: html
 toc: true
 editor_options: 
@@ -21,11 +21,13 @@ A population of fish we're interested in has four life stages: eggs (E), fry (F)
 ## 1. Create the matrix
 
 ```{r}
+
 # Make the Leslie Matrix ----
 fish_leslie <- matrix(c(0, 0, 0, 600, 0.25, 0, 0, 0, 0, 0.10, 0, 0, 0, 0, 0.4, 0.8), nrow = 4, ncol = 4, byrow = TRUE)
 
 # Check it out ----
 fish_leslie
+
 ```
 
 ## 2. Set the initial population structure
@@ -33,13 +35,16 @@ fish_leslie
 Initial population (Year 0): 0 eggs, 40,000 fry, 600 juveniles, and 450 adults.
 
 ```{r}
+
 # Initial population structure (R, F, J, A) ---- 
 fish_year0 <- c(0, 40000, 600, 450)
+
 ```
 
 ## 3. Project over several years 
 
 ```{r}
+
 # Population structure in year 1 ----
 fish_year1 <- fish_leslie %*% fish_year0
 fish_year1
@@ -53,5 +58,18 @@ fish_year3 <- fish_leslie %*% fish_year2
 fish_year3
 
 ## ADD YOUR CODE TO PROJECT FOR YEARS 4, 5 & 6 HERE ----
+
+# Population structure in year 4 ----
+fish_year4 <- fish_leslie %*% fish_year3
+fish_year4
+
+# Population structure in year 5 ----
+fish_year5 <- fish_leslie %*% fish_year4
+fish_year5
+
+# Population structure in year 6 ----
+fish_year5 <- fish_leslie %*% fish_year4
+fish_year5
+
 ```
 
